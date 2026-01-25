@@ -1,0 +1,6 @@
+# Robots.txt for Z-Axis Customs
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://zaxiscustoms.netlify.app/sitemap.xml
