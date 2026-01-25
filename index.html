@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Axis Customs | Custom 3D Printing Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-z">Z</span>-Axis Customs
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="grid-lines"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Bring Your</span>
+                <span class="title-line highlight">Vision</span>
+                <span class="title-line">To Life</span>
+            </h1>
+            <p class="hero-subtitle">Custom 3D printed creations of people, pets, vehicles, and anything you can imagine</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                <a href="#gallery" class="btn btn-secondary">View Gallery</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">We transform your ideas into stunning 3D printed reality</p>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Custom People</h3>
+                    <p>Immortalize yourself, loved ones, or friends with detailed 3D printed figurines. Perfect for gifts, memorials, or unique decorations.</p>
+                    <ul class="service-features">
+                        <li>Full body figurines</li>
+                        <li>Bust sculptures</li>
+                        <li>Action poses</li>
+                        <li>Multiple sizes available</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5M8 14v.5M16 14v.5M11.25 16.25h1.5L12 17l-.75-.75z"></path>
+                            <path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444c0-1.061-.162-2.2-.493-3.309m-9.243-6.082A8.801 8.801 0 0 1 12 5c.78 0 1.5.108 2.161.306"></path>
+                        </svg>
+                    </div>
+                    <h3>Pet Portraits</h3>
+                    <p>Celebrate your furry, feathered, or scaly companions with custom 3D printed pet figurines that capture their unique personality.</p>
+                    <ul class="service-features">
+                        <li>Dogs & cats</li>
+                        <li>Exotic pets</li>
+                        <li>Memorial pieces</li>
+                        <li>Custom poses</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>
+                            <path d="M10 6h4"></path>
+                            <path d="M2 20h20"></path>
+                        </svg>
+                    </div>
+                    <h3>Vehicles & Models</h3>
+                    <p>From classic cars to modern supercars, motorcycles to aircraft - we create detailed scale models of your dream vehicles.</p>
+                    <ul class="service-features">
+                        <li>Cars & trucks</li>
+                        <li>Motorcycles</li>
+                        <li>Aircraft & boats</li>
+                        <li>Custom scale options</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Custom Designs</h3>
+                    <p>If you can dream it, we can print it. From prototypes to art pieces, gaming miniatures to architectural models.</p>
+                    <ul class="service-features">
+                        <li>Product prototypes</li>
+                        <li>Gaming miniatures</li>
+                        <li>Art & sculptures</li>
+                        <li>Architectural models</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
+            <p class="section-subtitle">Browse through some of our custom creations</p>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="people">People</button>
+                <button class="filter-btn" data-filter="pets">Pets</button>
+                <button class="filter-btn" data-filter="vehicles">Vehicles</button>
+                <button class="filter-btn" data-filter="custom">Custom</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="people">
+                    <div class="gallery-placeholder">
+                        <span>Family Portrait</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Family Figurine Set</h4>
+                        <p>Custom family portrait in 3D</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <div class="gallery-placeholder">
+                        <span>Golden Retriever</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Golden Retriever</h4>
+                        <p>Memorial pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vehicles">
+                    <div class="gallery-placeholder">
+                        <span>1967 Mustang</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>1967 Ford Mustang</h4>
+                        <p>1:24 scale model</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-placeholder">
+                        <span>Dragon Sculpture</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Fantasy Dragon</h4>
+                        <p>Custom gaming piece</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="people">
+                    <div class="gallery-placeholder">
+                        <span>Wedding Couple</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Wedding Cake Topper</h4>
+                        <p>Custom bride & groom</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <div class="gallery-placeholder">
+                        <span>Cat Portrait</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Persian Cat</h4>
+                        <p>Detailed pet replica</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vehicles">
+                    <div class="gallery-placeholder">
+                        <span>Motorcycle</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Harley Davidson</h4>
+                        <p>Custom bike replica</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-placeholder">
+                        <span>Architecture Model</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Dream Home Model</h4>
+                        <p>Architectural visualization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">From concept to creation in four simple steps</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Consultation</h3>
+                        <p>Share your vision with us. Send photos, sketches, or just describe your idea. We'll discuss options, sizes, and materials.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>3D Modeling</h3>
+                        <p>Our skilled designers create a detailed 3D model of your project. You'll receive previews and can request revisions.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Printing</h3>
+                        <p>Using state-of-the-art 3D printers, we bring your design to life with precision and care. Quality checked at every step.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Finishing & Delivery</h3>
+                        <p>Professional finishing, painting (if requested), and careful packaging ensure your creation arrives perfect.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Z-Axis Customs</h2>
+                    <p class="lead">We're passionate about transforming ideas into tangible reality through the power of 3D printing technology.</p>
+                    <p>Founded by makers and artists who believe everyone deserves to hold their imagination in their hands, Z-Axis Customs combines cutting-edge technology with artistic craftsmanship.</p>
+                    <p>Whether you want to immortalize a beloved pet, create a unique gift, or prototype your next big invention, our team brings expertise, creativity, and attention to detail to every project.</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="500">0</span>+
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="98">0</span>%
+                            <span class="stat-label">Customer Satisfaction</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="5">0</span>+
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="printer-animation">
+                        <div class="printer-frame">
+                            <div class="print-head"></div>
+                            <div class="print-bed">
+                                <div class="printed-object"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Z-Axis Customs created an incredible figurine of my late grandmother from an old photograph. The attention to detail brought tears to my eyes. It's now my most treasured possession."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <span class="author-name">Sarah M.</span>
+                            <span class="author-title">Custom People</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Got a 3D print of my 1969 Camaro and it's absolutely perfect! Every detail, from the chrome to the interior, is exactly like my real car. Amazing work!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <span class="author-name">Mike T.</span>
+                            <span class="author-title">Vehicle Model</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"They captured my dog's personality perfectly! The way he tilts his head, his floppy ears - it's all there. Best memorial I could have asked for."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <span class="author-name">Jennifer L.</span>
+                            <span class="author-title">Pet Portrait</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-prev" aria-label="Previous testimonial">&#8249;</button>
+                    <div class="testimonial-dots"></div>
+                    <button class="testimonial-next" aria-label="Next testimonial">&#8250;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Ready to bring your idea to life? Contact us for a free quote!</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <p>hello@zaxiscustoms.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <h4>Location</h4>
+                            <p>123 Maker Street<br>Creative District, CA 90210</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected></option>
+                            <option value="people">Custom People</option>
+                            <option value="pets">Pet Portraits</option>
+                            <option value="vehicles">Vehicles & Models</option>
+                            <option value="custom">Custom Design</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="service">Service Type</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <label for="message">Tell Us About Your Project</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <span class="logo-z">Z</span>-Axis Customs
+                    </a>
+                    <p>Turning imagination into reality, one layer at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Custom People</a></li>
+                        <li><a href="#services">Pet Portraits</a></li>
+                        <li><a href="#services">Vehicle Models</a></li>
+                        <li><a href="#services">Custom Designs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Z-Axis Customs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
