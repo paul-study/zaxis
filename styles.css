@@ -782,15 +782,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
+    display: flex;
+    justify-content: center;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
+    text-align: center;
 }
 
 .info-item {
@@ -832,33 +833,36 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
-}
-
-.social-link {
-    width: 45px;
-    height: 45px;
-    border-radius: 12px;
-    background: var(--dark-lighter);
-    display: flex;
-    align-items: center;
     justify-content: center;
+}
+
+.facebook-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: #1877f2;
+    color: white;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(24, 119, 242, 0.4);
 }
 
-.social-link:hover {
-    background: var(--primary);
+.facebook-cta:hover {
+    background: #166fe5;
     transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(24, 119, 242, 0.5);
 }
 
-.social-link svg {
-    width: 20px;
-    height: 20px;
-    color: var(--light);
-}
-
-.social-link:hover svg {
-    color: var(--dark);
+.facebook-cta svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
 }
 
 /* Contact Form */
