@@ -67,6 +67,19 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+}
+
+.section-logo {
+    height: 50px;
+    width: auto;
+}
+
 .section-title {
     font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
@@ -75,6 +88,10 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.section-header .section-title {
+    margin-bottom: 0;
 }
 
 .section-subtitle {
@@ -161,6 +178,17 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo {
+    height: 40px !important;
+    min-width: 40px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .logo-z {
@@ -549,6 +577,15 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.about-logo {
+    height: 300px;
+    width: auto;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .about-text .section-title {
     text-align: left;
 }
@@ -908,8 +945,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-brand .logo {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 1rem;
+}
+
+.footer-logo {
+    height: 50px;
+    width: auto;
 }
 
 .footer-brand p {
