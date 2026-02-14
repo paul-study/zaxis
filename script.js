@@ -4,7 +4,6 @@ const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
-const contactForm = document.getElementById('contactForm');
 
 // ===== Navbar Scroll Effect =====
 window.addEventListener('scroll', () => {
@@ -82,53 +81,55 @@ const prevBtn = document.querySelector('.testimonial-prev');
 const nextBtn = document.querySelector('.testimonial-next');
 const dotsContainer = document.querySelector('.testimonial-dots');
 
-let currentSlide = 0;
-const totalSlides = testimonials.length;
+if (testimonialTrack && testimonials.length > 0 && prevBtn && nextBtn && dotsContainer) {
+    let currentSlide = 0;
+    const totalSlides = testimonials.length;
 
-// Create dots
-testimonials.forEach((_, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
+    // Create dots
+    testimonials.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
 
-const dots = document.querySelectorAll('.testimonial-dots .dot');
+    const dots = document.querySelectorAll('.testimonial-dots .dot');
 
-function updateSlider() {
-    testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
+    function updateSlider() {
+        testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Auto-slide every 5 seconds
+    let autoSlide = setInterval(nextSlide, 5000);
+
+    // Pause auto-slide on hover
+    testimonialTrack.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    testimonialTrack.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(nextSlide, 5000);
     });
 }
-
-function goToSlide(index) {
-    currentSlide = index;
-    updateSlider();
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlider();
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlider();
-}
-
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
-
-// Auto-slide every 5 seconds
-let autoSlide = setInterval(nextSlide, 5000);
-
-// Pause auto-slide on hover
-testimonialTrack.addEventListener('mouseenter', () => clearInterval(autoSlide));
-testimonialTrack.addEventListener('mouseleave', () => {
-    autoSlide = setInterval(nextSlide, 5000);
-});
 
 // ===== Stats Counter Animation =====
 const statNumbers = document.querySelectorAll('.stat-number');
@@ -138,6 +139,8 @@ function animateStats() {
     if (statsAnimated) return;
     
     const statsSection = document.querySelector('.stats');
+    if (!statsSection) return; // Exit if stats section doesn't exist
+    
     const statsSectionTop = statsSection.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
     
@@ -166,127 +169,6 @@ function animateStats() {
 }
 
 window.addEventListener('scroll', animateStats);
-
-// ===== Contact Form Handling =====
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // Simple validation
-    if (!data.name || !data.email || !data.service || !data.message) {
-        showNotification('Please fill in all fields', 'error');
-        return;
-    }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-        showNotification('Please enter a valid email address', 'error');
-        return;
-    }
-    
-    // Simulate form submission
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-        contactForm.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 1500);
-});
-
-// ===== Notification System =====
-function showNotification(message, type = 'success') {
-    // Remove existing notification
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <span>${message}</span>
-        <button class="notification-close">&times;</button>
-    `;
-    
-    // Style notification
-    Object.assign(notification.style, {
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        padding: '15px 20px',
-        borderRadius: '10px',
-        background: type === 'success' ? '#00d4ff' : '#ff6b35',
-        color: '#0a0a0f',
-        fontWeight: '500',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '15px',
-        zIndex: '9999',
-        animation: 'slideInRight 0.3s ease',
-        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)'
-    });
-    
-    // Add close button style
-    const closeBtn = notification.querySelector('.notification-close');
-    Object.assign(closeBtn.style, {
-        background: 'none',
-        border: 'none',
-        fontSize: '1.5rem',
-        cursor: 'pointer',
-        color: 'inherit',
-        lineHeight: '1'
-    });
-    
-    document.body.appendChild(notification);
-    
-    // Close on click
-    closeBtn.addEventListener('click', () => notification.remove());
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentElement) {
-            notification.style.animation = 'slideOutRight 0.3s ease forwards';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
-}
-
-// Add animation keyframes
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // ===== Smooth Scroll for All Anchor Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -334,8 +216,63 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// ===== EmailJS Contact Form =====
+emailjs.init('FkQY2Ii4rpYWSwujD');
+
 // ===== Initialize on DOM Load =====
 document.addEventListener('DOMContentLoaded', () => {
+    const contactFormEl = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactFormEl) {
+        contactFormEl.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submitted');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formStatus.style.display = 'none';
+            formStatus.className = 'form-status';
+
+            const formData = {
+                from_name: document.getElementById('contactName').value,
+                from_email: document.getElementById('contactEmail').value,
+                message: document.getElementById('contactMessage').value,
+                to_email: 'paul@tohukorero.com'
+            };
+
+            console.log('Sending email with data:', formData);
+
+            emailjs.send('service_rtncsgq', 'template_zzoq2ji', formData)
+                .then(function(response) {
+                    console.log('Email sent successfully!', response);
+                    formStatus.textContent = 'Message sent successfully!';
+                    formStatus.className = 'form-status success';
+                    formStatus.style.display = 'block';
+                    contactFormEl.reset();
+                    setTimeout(function() {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                })
+                .catch(function(error) {
+                    console.error('EmailJS error:', error);
+                    formStatus.textContent = 'Failed to send message. Please try again.';
+                    formStatus.className = 'form-status error';
+                    formStatus.style.display = 'block';
+                    setTimeout(function() {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
+        });
+    } else {
+        console.warn('Contact form element not found');
+    }
+
     // Trigger initial animations
     updateActiveNav();
     

@@ -162,6 +162,8 @@
     <link rel="icon" type="image/png" href="icons/zlogo.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -413,6 +415,111 @@
                         <p>Custom sculpture</p>
                     </div>
                 </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dog4.jpeg" alt="Dog">
+                    <div class="gallery-overlay">
+                        <h4>Dog</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dog5.jpeg" alt="Dog">
+                    <div class="gallery-overlay">
+                        <h4>Dog</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dog6.jpg" alt="Dog">
+                    <div class="gallery-overlay">
+                        <h4>Dog</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dog7.jpg" alt="Dog">
+                    <div class="gallery-overlay">
+                        <h4>Dog</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dog8.jpg" alt="Dog">
+                    <div class="gallery-overlay">
+                        <h4>Dog</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dog9.jpg" alt="Dog">
+                    <div class="gallery-overlay">
+                        <h4>Dog</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dog10.jpg" alt="Dog">
+                    <div class="gallery-overlay">
+                        <h4>Dog</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dogs.jpg" alt="Dogs">
+                    <div class="gallery-overlay">
+                        <h4>Dogs</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/dogs2.jpg" alt="Dogs">
+                    <div class="gallery-overlay">
+                        <h4>Dogs</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/cat45.jpg" alt="Cat">
+                    <div class="gallery-overlay">
+                        <h4>Cat</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pets">
+                    <img src="images/horse2.jpg" alt="Horse">
+                    <div class="gallery-overlay">
+                        <h4>Horse</h4>
+                        <p>Pet sculpture</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vehicles">
+                    <img src="images/bugatti.jpg" alt="Bugatti">
+                    <div class="gallery-overlay">
+                        <h4>Bugatti</h4>
+                        <p>Vehicle model</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vehicles">
+                    <img src="images/kenworth.jpg" alt="Kenworth">
+                    <div class="gallery-overlay">
+                        <h4>Kenworth</h4>
+                        <p>Vehicle model</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vehicles">
+                    <img src="images/vl.jpg" alt="VL Commodore">
+                    <div class="gallery-overlay">
+                        <h4>VL Commodore</h4>
+                        <p>Vehicle model</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="custom">
+                    <img src="images/marionette.jpg" alt="Marionette">
+                    <div class="gallery-overlay">
+                        <h4>Marionette</h4>
+                        <p>Custom sculpture</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -586,13 +693,34 @@
                     <div class="social-links">
                         <a href="https://m.me/100087760894804" class="facebook-cta" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            <span>Message Us on Facebook</span>
+                            <span>Message Us</span>
                         </a>
                         <a href="https://www.facebook.com/people/Pauly-J-Hika-Artist/100087760894804/" class="facebook-cta" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            <span>Follow Us on Facebook</span>
+                            <span>Check out our page</span>
                         </a>
                     </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3 class="form-title">Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" name="name" required>
+                            <label for="contactName">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" name="email" required>
+                            <label for="contactEmail">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" name="message" required></textarea>
+                            <label for="contactMessage">Your Message</label>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn btn-primary btn-submit">Send Message</button>
+                        <div id="formStatus" class="form-status" style="display: none;"></div>
+                    </form>
                 </div>
             </div>
         </div>
