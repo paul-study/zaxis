@@ -4,6 +4,7 @@ const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
+const lazyVideoSources = document.querySelectorAll('video source[data-src]');
 
 // ===== Navbar Scroll Effect =====
 window.addEventListener('scroll', () => {
@@ -53,6 +54,38 @@ function updateActiveNav() {
 }
 
 window.addEventListener('scroll', updateActiveNav);
+
+// ===== Deferred Video Loading =====
+function loadDeferredVideos() {
+    lazyVideoSources.forEach(source => {
+        if (source.src) {
+            return;
+        }
+
+        source.src = source.dataset.src;
+        source.removeAttribute('data-src');
+        source.parentElement.load();
+    });
+}
+
+const aboutSection = document.querySelector('.about');
+
+if (aboutSection && lazyVideoSources.length > 0) {
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadDeferredVideos();
+                    observer.disconnect();
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        videoObserver.observe(aboutSection);
+    } else {
+        loadDeferredVideos();
+    }
+}
 
 // ===== Gallery Filter =====
 filterBtns.forEach(btn => {
