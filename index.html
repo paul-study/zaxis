@@ -196,11 +196,16 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-actions">
+                <a href="https://www.facebook.com/people/Pauly-J-Hika-Artist/100087760894804/" class="btn-icon nav-facebook" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -220,6 +225,7 @@
                 <a href="#contact" class="btn btn-primary">Get a Quote</a>
                 <a href="#gallery" class="btn btn-secondary">View Gallery</a>
             </div>
+            <p class="hero-facebook-note">Visit our <a href="https://www.facebook.com/people/Pauly-J-Hika-Artist/100087760894804/" target="_blank" rel="noopener noreferrer">Facebook page</a> for our latest work — you can message us there too</p>
         </div>
         <div class="scroll-indicator">
             <span>Scroll</span>
@@ -682,6 +688,9 @@
                     </div>
                 </div>
             </div>
+            <div class="gallery-load-more-wrap">
+                <button type="button" id="galleryLoadMore" class="btn btn-secondary">Show More</button>
+            </div>
         </div>
     </section>
 
@@ -923,6 +932,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Gallery Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+        <img src="" alt="" class="lightbox-img" id="lightboxImg">
+        <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Back to Top -->
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
 
     <script src="script.js"></script>
 </body>

@@ -87,25 +87,123 @@ if (aboutSection && lazyVideoSources.length > 0) {
     }
 }
 
-// ===== Gallery Filter =====
+// ===== Gallery Filter + Pagination =====
+const GALLERY_INITIAL_COUNT = 8;
+const GALLERY_LOAD_INCREMENT = 8;
+const galleryItemsArr = Array.from(galleryItems);
+const galleryLoadMoreBtn = document.getElementById('galleryLoadMore');
+let currentGalleryFilter = 'all';
+let galleryVisibleCount = GALLERY_INITIAL_COUNT;
+
+function renderGallery() {
+    const matching = galleryItemsArr.filter(item =>
+        currentGalleryFilter === 'all' || item.dataset.category === currentGalleryFilter
+    );
+
+    galleryItemsArr.forEach(item => item.classList.add('hidden'));
+
+    matching.forEach((item, index) => {
+        if (index < galleryVisibleCount) {
+            item.classList.remove('hidden');
+            item.style.animation = 'fadeInUp 0.5s ease forwards';
+        }
+    });
+
+    if (galleryLoadMoreBtn) {
+        galleryLoadMoreBtn.style.display = matching.length > galleryVisibleCount ? 'inline-block' : 'none';
+    }
+}
+
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Update active button
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        
-        const filter = btn.dataset.filter;
-        
-        galleryItems.forEach(item => {
-            if (filter === 'all' || item.dataset.category === filter) {
-                item.classList.remove('hidden');
-                item.style.animation = 'fadeInUp 0.5s ease forwards';
-            } else {
-                item.classList.add('hidden');
-            }
-        });
+
+        currentGalleryFilter = btn.dataset.filter;
+        galleryVisibleCount = GALLERY_INITIAL_COUNT;
+        renderGallery();
     });
 });
+
+if (galleryLoadMoreBtn) {
+    galleryLoadMoreBtn.addEventListener('click', () => {
+        galleryVisibleCount += GALLERY_LOAD_INCREMENT;
+        renderGallery();
+    });
+}
+
+renderGallery();
+
+// ===== Gallery Lightbox =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+let lightboxIndex = 0;
+
+function visibleGalleryItems() {
+    return galleryItemsArr.filter(item => !item.classList.contains('hidden'));
+}
+
+function openLightbox(index) {
+    const items = visibleGalleryItems();
+    if (!items.length) return;
+
+    lightboxIndex = (index + items.length) % items.length;
+    const item = items[lightboxIndex];
+    const img = item.querySelector('img');
+    const title = item.querySelector('h4');
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = title ? title.textContent : img.alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+galleryItemsArr.forEach(item => {
+    item.addEventListener('click', () => {
+        const items = visibleGalleryItems();
+        openLightbox(items.indexOf(item));
+    });
+});
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if (lightboxPrev) lightboxPrev.addEventListener('click', () => openLightbox(lightboxIndex - 1));
+if (lightboxNext) lightboxNext.addEventListener('click', () => openLightbox(lightboxIndex + 1));
+
+if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (!lightbox || !lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') openLightbox(lightboxIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(lightboxIndex + 1);
+});
+
+// ===== Back to Top =====
+const backToTopBtn = document.getElementById('backToTop');
+
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        backToTopBtn.classList.toggle('visible', window.scrollY > 500);
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 // ===== Testimonial Slider =====
 const testimonialTrack = document.querySelector('.testimonial-track');
